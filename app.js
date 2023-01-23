@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const router = require("./router");
 
 
 //MongoDB chaqrish
@@ -18,4 +19,7 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4 routing code 
+app.use("/", router);
+
+
 module.express = app;
