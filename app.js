@@ -2,10 +2,6 @@ const express = require("express");
 const app = express();
 const router = require("./router");
 
-//MongoDB chaqrish
-const db = require("./server").db();
-const mongodb = require("mongodb");
-
 // 1: Kirish code
 app.use(express.static("public"));
 app.use(express.json());
