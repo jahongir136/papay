@@ -21,9 +21,9 @@ memberController.login = async (req, res) => {
     console.log("POST: cont/login");
     const data = req.body,
       member = new Member(),
-      new_member = await member.loginData(data);
+      result = await member.loginData(data);
 
-    res.json({ state: "succseed", data: new_member });
+    res.json({ state: "succseed", data: result });
   } catch (err) {
     console.log(`ERROR, cont/login, ${err.message}`);
     res.json({ state: "fail", message: err.message });
@@ -34,3 +34,5 @@ memberController.logout = (req, res) => {
   console.log("GET cont.logout");
   res.send("logout sahifadasiz");
 };
+
+//push
