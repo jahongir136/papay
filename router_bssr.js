@@ -19,3 +19,5 @@ router_bssr.get("/check_me", restaurantController.checkSessions);
 router_bssr.get("/products/menu", restaurantController.getMyRestaurantData);
 
 module.exports = router_bssr;
+
+//feat: develop session authentication on ejs
