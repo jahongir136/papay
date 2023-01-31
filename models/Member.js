@@ -51,5 +51,3 @@ class Member {
 }
 
 module.exports = Member;
-
-//push
