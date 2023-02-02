@@ -1,3 +1,14 @@
+//  L - TASK
+
+function calculate(xisobla) {
+  return eval(xisobla);
+}
+
+console.log(calculate("1 + 1"));
+console.log(calculate("4 * 5"));
+
+//==================================//
+
 // K-TASK
 
 // function FootBallPoints(wins, draws, losses) {
