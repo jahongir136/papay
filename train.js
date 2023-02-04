@@ -1,11 +1,40 @@
-//  L - TASK
+// M-TASK
 
-function calculate(xisobla) {
-  return eval(xisobla);
+class Member {
+  #counts;
+  constructor(counts) {
+    this.#counts = counts;
+  }
+
+  addMember(amount) {
+    this.#counts += amount;
+  }
+
+  removeMember(amount) {
+    this.#counts -= amount;
+  }
+
+  inform() {
+    console.log(this.#counts);
+  }
 }
 
-console.log(calculate("1 + 1"));
-console.log(calculate("4 * 5"));
+const xisobla = new Member(0);
+
+xisobla.addMember(5);
+
+xisobla.removeMember(2);
+
+xisobla.inform();
+
+//  L - TASK
+
+// function calculate(xisobla) {
+//   return eval(xisobla);
+// }
+
+// console.log(calculate("1 + 1"));
+// console.log(calculate("4 * 5"));
 
 //==================================//
 
