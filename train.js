@@ -1,31 +1,31 @@
 // M-TASK
 
-class Member {
-  #counts;
-  constructor(counts) {
-    this.#counts = counts;
-  }
+// class Member {
+//   #counts;
+//   constructor(counts) {
+//     this.#counts = counts;
+//   }
 
-  addMember(amount) {
-    this.#counts += amount;
-  }
+//   addMember(amount) {
+//     this.#counts += amount;
+//   }
 
-  removeMember(amount) {
-    this.#counts -= amount;
-  }
+//   removeMember(amount) {
+//     this.#counts -= amount;
+//   }
 
-  inform() {
-    console.log(this.#counts);
-  }
-}
+//   inform() {
+//     console.log(this.#counts);
+//   }
+// }
 
-const xisobla = new Member(0);
+// const xisobla = new Member(0);
 
-xisobla.addMember(5);
+// xisobla.addMember(5);
 
-xisobla.removeMember(2);
+// xisobla.removeMember(2);
 
-xisobla.inform();
+// xisobla.inform();
 
 //  L - TASK
 
