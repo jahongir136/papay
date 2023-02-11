@@ -75,13 +75,13 @@
       </div>
 
       <div class="login_input_frame">
-        <div class="media-fream">
+        <div class="media-frame">
           <img class="upload_img_frame" src="/images/default_resto.jpeg" />
           <div class="upload_container">
             <span class="media_text">Taom Rasmi</span>
             <div class="filebox bs3-primary preview-image">
               <input
-                class="upload_name"
+                class="upload-name"
                 value="Rasmni tanglang"
                 disabled="disabled"
               />
@@ -114,8 +114,8 @@
     let filename = "";
     fileTarget.on("change", function () {
       if (window.FileReader) {
-        const uploading_file = $(this).files[0];
-        const fileType = uploading_file("type");
+        const uploading_file = $(this)[0].files[0];
+        const fileType = uploading_file["type"];
         const validImageTypes = ["image/jpg", "image/jpeg", "image/png"];
         if (!validImageTypes.includes(fileType)) {
           alert(
