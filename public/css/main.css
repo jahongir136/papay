@@ -31,6 +31,7 @@ a {
   color: #efefee;
   font-size: xx-large;
   font-family: monospace;
+  width: 100%;
 }
 .new_dish_txt {
   font-family: "Source Serif Pro";
