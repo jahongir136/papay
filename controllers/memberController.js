@@ -1,5 +1,4 @@
 const Member = require("../models/Member");
-
 let memberController = module.exports;
 const jwt = require("jsonwebtoken");
 const assert = require("assert");
@@ -106,5 +105,6 @@ memberController.retrieveAuthMember = (req, res, next) => {
     next();
   } catch (err) {
     console.log(`ERROR, cont/retrieveAuthMember, ${err.message}`);
+    next();
   }
 };
