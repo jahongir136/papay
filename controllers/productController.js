@@ -7,12 +7,18 @@ let productController = module.exports;
 productController.getAllProducts = async (req, res) => {
   try {
     console.log("GET: cont/getAllProducts");
+    const product = new Product();
+    const result = await product.getAllProductsData(req.member, req.body);
+    res.json({ state: "succseed", data: result });
   } catch (err) {
     console.log(`ERROR, cont/getAllProducts, ${err.message}`);
     res.json({ state: "fail", message: err.message });
   }
 };
 
+//*********************************************
+//BSSR RELETED METHOD
+//*********************************************/
 productController.addNewProduct = async (req, res) => {
   try {
     console.log("POST: cont/addNewProduct");
