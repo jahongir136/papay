@@ -1,4 +1,4 @@
-const memberModel = require("../schema/member.model");
+const MemberModel = require("../schema/member.model");
 const assert = require("assert");
 const Definer = require("../lib/mistake");
 const bcrypt = require("bcryptjs");
@@ -7,7 +7,7 @@ const View = require("./View");
 
 class Member {
   constructor() {
-    this.memberModel = memberModel;
+    this.memberModel = MemberModel;
   }
   async signupData(input) {
     try {
@@ -64,6 +64,7 @@ class Member {
         .aggregate([
           { $match: { _id: id, mb_status: "ACTIVE" } },
           { $unset: "mb_password" },
+          // Todo: check auth member liked the chosen member
         ])
         .exec();
 
