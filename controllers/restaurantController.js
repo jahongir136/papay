@@ -14,7 +14,21 @@ restaurantController.getRestaurants = async (req, res) => {
       result = await restaurant.getRestaurantsData(req.member, data);
     res.json({ state: "success", data: result });
   } catch (err) {
-    console.log(`ERROR, cont/home, ${err.message}`);
+    console.log(`ERROR, cont/getRestaurants, ${err.message}`);
+    res.json({ state: "fail", message: err.message });
+  }
+};
+
+restaurantController.getChosenRestaurant = async (req, res) => {
+  try {
+    console.log("GET: cont/getChosenRestaurant");
+    const id = req.params.id,
+      restaurant = new Restaurant(),
+      result = await restaurant.getChosenRestaurantData(req.member, id);
+
+    res.json({ state: "success", data: result });
+  } catch (err) {
+    console.log(`ERROR, cont/getChosenRestaurant, ${err.message}`);
     res.json({ state: "fail", message: err.message });
   }
 };

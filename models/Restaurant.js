@@ -2,6 +2,7 @@ const MemberModel = require("../schema/member.model");
 const Definer = require("../lib/mistake");
 const { shapeIntoMongooseObjectId } = require("../lib/config");
 const assert = require("assert");
+const Member = require("../models/Member");
 
 class Restaurant {
   constructor() {
@@ -39,6 +40,29 @@ class Restaurant {
 
       const result = await this.memberModel.aggregate(aggregationQuery).exec();
       assert.ok(result, Definer.general_err1);
+      return result;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async getChosenRestaurantData(member, id) {
+    try {
+      id = shapeIntoMongooseObjectId(id);
+
+      if (member) {
+        const member_obj = new Member();
+        await member_obj.viewChosenItemByMember(member, id, "member");
+      }
+
+      const result = await this.memberModel
+        .findOne({
+          _id: id,
+          mb_status: "ACTIVE",
+        })
+        .exec();
+      assert.ok(result, Definer.general_err2);
+
       return result;
     } catch (err) {
       throw err;
