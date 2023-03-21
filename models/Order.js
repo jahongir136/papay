@@ -90,7 +90,7 @@ class Order {
       return "inserted";
     } catch (err) {
       console.log(err);
-      throw new Error[Definer.order_err2]();
+      throw new Error(Definer.order_err2);
     }
   }
 

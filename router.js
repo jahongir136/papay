@@ -3,6 +3,7 @@ const { restart } = require("nodemon");
 const router = express.Router();
 const memberController = require("./controllers/memberController");
 const productController = require("./controllers/productController");
+const followController = require("./controllers/followController");
 const restaurantController = require("./controllers/restaurantController");
 const communityController = require("./controllers/communityController");
 const orderController = require("./controllers/orderController");
@@ -100,6 +101,14 @@ router.get(
   "/community/single-article/:art_id",
   memberController.retrieveAuthMember,
   communityController.getChosenArticle
+);
+
+//following rreleted routers
+
+router.post(
+  "/follow/subscribe",
+  memberController.retrieveAuthMember,
+  followController.subscribe
 );
 
 module.exports = router;
