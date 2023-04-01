@@ -4,6 +4,9 @@ const Product = require("../models/Product");
 const assert = require("assert");
 const Restaurant = require("../models/Restaurant");
 
+
+
+
 let restaurantController = module.exports;
 
 restaurantController.getRestaurants = async (req, res) => {
