@@ -119,7 +119,7 @@ class Member {
       console.log("isValid:::", isValid);
       assert.ok(isValid, Definer.general_err2);
 
-      const doesExist = await like.checkViewExistence(like_ref_id);
+      const doesExist = await like.checkLikeExistence(like_ref_id);
       console.log("doesExist::", doesExist);
 
       let data = doesExist
@@ -130,7 +130,7 @@ class Member {
       let result = {
         like_group: data.like_group,
         like_ref_id: data.like_ref_id,
-        like_satatus: doesExist ? 0 : 1,
+        like_status: doesExist ? 0 : 1,
       };
       return result;
     } catch (err) {

@@ -38,7 +38,7 @@ class Like {
       throw err;
     }
   }
-  async checkViewExistence(like_ref_id) {
+  async checkLikeExistence(like_ref_id) {
     try {
       const like = await this.likeModel
         .findOne({
@@ -47,7 +47,7 @@ class Like {
         })
         .exec();
 
-      return !!like;
+        return like ? true : false;
     } catch (err) {
       throw err;
     }
