@@ -113,7 +113,7 @@ class Member {
     try {
       like_ref_id = shapeIntoMongooseObjectId(like_ref_id);
       const mb_id = shapeIntoMongooseObjectId(member._id);
-
+     
       const like = new Like(mb_id);
       const isValid = await like.validateTargetItem(like_ref_id, group_type);
       console.log("isValid:::", isValid);
@@ -132,6 +132,7 @@ class Member {
         like_ref_id: data.like_ref_id,
         like_status: doesExist ? 0 : 1,
       };
+ 
       return result;
     } catch (err) {
       throw err;

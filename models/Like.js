@@ -13,26 +13,37 @@ class Like {
     this.mb_id = mb_id;
   }
 
-  async validateTargetItem(id, group_type) {
+  async validateTargetItem(like_ref_id, group_type) {
     try {
       let result;
       switch (group_type) {
         case "member":
           result = await this.memberModel
-            .findOne({ _id: id, mb_status: "ACTIVE" })
+            .findOne({
+              _id: like_ref_id,
+              mb_status: "ACTIVE",
+            })
             .exec();
           break;
         case "product":
-          result = await this.memberModel
-            .findOne({ _id: id, product_status: "PROCESS" })
+          result = await this.productModel
+            .findOne({
+              _id: like_ref_id,
+              product_status: "PROCESS",
+            })
             .exec();
           break;
         case "community":
         default:
           result = await this.boArticleModel
-            .findOne({ _id: id, art_status: "active" })
+            .findOne({
+              _id: like_ref_id,
+              art_status: "active",
+            })
             .exec();
+          break;
       }
+
       return !!result;
     } catch (err) {
       throw err;

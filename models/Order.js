@@ -78,12 +78,13 @@ class Order {
       order_id = shapeIntoMongooseObjectId(order_id);
       item._id = shapeIntoMongooseObjectId(item._id);
 
-      const order_item = new this.OrderItemModel({
+      const order_item = new OrderItemModel({
         item_quantity: item["quantity"],
         item_price: item["price"],
         order_id: order_id,
         product_id: item["_id"],
       });
+    
       const result = await order_item.save();
       assert.ok(result, Definer.order_err2);
 

@@ -112,7 +112,7 @@ memberController.likeMemberChosen = async (req, res) => {
       like_ref_id,
       group_type
     );
-
+    console.log("result::", result);
     res.json({ state: "success", data: result });
   } catch (err) {
     console.log(`ERROR, cont/likeMemberChosen, ${err.message}`);
@@ -124,6 +124,7 @@ memberController.retrieveAuthMember = (req, res, next) => {
   try {
     const token = req.cookies["access_token"];
     req.member = token ? jwt.verify(token, process.env.SECRET_TOKEN) : null;
+  
     next();
   } catch (err) {
     console.log(`ERROR, cont/retrieveAuthMember, ${err.message}`);
