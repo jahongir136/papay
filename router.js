@@ -37,6 +37,13 @@ router.post(
   productController.getAllProducts
 );
 
+router.post(
+  "/member/update",
+  memberController.retrieveAuthMember,
+  uploader_member.single("mb_image"),
+  memberController.updateMember
+);
+
 router.get(
   "/products/:id",
   memberController.retrieveAuthMember,
