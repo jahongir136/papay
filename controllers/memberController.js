@@ -126,10 +126,14 @@ memberController.updateMember = async (req, res) => {
     console.log(req.body);
     console.log(req.file);
 
-    assert.ok(req.member, Definer.auth_err3)
+    assert.ok(req.member, Definer.auth_err3);
     const member = new Member();
-    const result = await member.updateMemberData(req.member?._id, req.body, req.file);
-   
+    const result = await member.updateMemberData(
+      req.member?._id,
+      req.body,
+      req.file
+    );
+
     res.json({ state: "success", data: result });
   } catch (err) {
     console.log(`ERROR, cont/updateMember, ${err.message}`);
@@ -137,12 +141,11 @@ memberController.updateMember = async (req, res) => {
   }
 };
 
-
 memberController.retrieveAuthMember = (req, res, next) => {
   try {
     const token = req.cookies["access_token"];
     req.member = token ? jwt.verify(token, process.env.SECRET_TOKEN) : null;
-  
+
     next();
   } catch (err) {
     console.log(`ERROR, cont/retrieveAuthMember, ${err.message}`);
