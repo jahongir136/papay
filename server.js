@@ -26,4 +26,4 @@ mongoose.connect(
     }
   }
 );
-// test uchun
+// test sinov
